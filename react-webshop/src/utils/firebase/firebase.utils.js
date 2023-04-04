@@ -2,7 +2,6 @@ import { initializeApp } from 'firebase/app';
 
 import {
     getAuth,
-    signInWithRedirect,
     signInWithPopup,
     GoogleAuthProvider
 } from 'firebase/auth';
@@ -44,6 +43,7 @@ const firebaseConfig = {
         const userDocRef = doc(db,'users', userAuth.uid);
         const userSnashot = await getDoc(userDocRef);
         console.log(userSnashot.exists());
+       
 
         if (!userSnashot.exists()){
           const {displayName, email} = userAuth;
@@ -58,6 +58,5 @@ const firebaseConfig = {
             console.log('error', error.message);
           }
         }
-
         return userDocRef;
   };
