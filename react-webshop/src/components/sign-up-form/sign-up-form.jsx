@@ -9,6 +9,7 @@ import {
 } from '../../utils/firebase/firebase.utils';
 
 import FormInput from '../form-input/form-input.component.';
+
 import './sign-up-form.styles.scss';
 
 const defaultFormField = {
@@ -22,6 +23,10 @@ export default function SignUpForm() {
 
     const [formFields, setFormFields] = useState(defaultFormField);
     const { displayName, email, password, confirmPassword } = formFields;
+
+    const clearFormFields =()=>{
+        setFormFields(defaultFormField);
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -38,12 +43,12 @@ export default function SignUpForm() {
         catch (error) {
             console.log('Error while submiing', error.message);
         }
+        clearFormFields();
     }
+
 
     const handleChange = (event) => {
         const { name, value } = event.target;
-        console.log('event:', event.target);
-        console.log('formfields:', formFields);
         setFormFields({ ...formFields, [name]: value });
     }
 
@@ -88,7 +93,7 @@ export default function SignUpForm() {
                     onChange={handleChange}
                     value={confirmPassword}
                 />
-                <Button buttonType = 'google' type='submit'>Sign Up</Button>
+                <Button type='submit'>Sign Up</Button>
             </form>
         </div>
     )
