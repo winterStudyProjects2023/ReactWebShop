@@ -1,7 +1,8 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
 import Button from '../button/button.component';
+import { UserContext } from '../../contexts/user.context';
 
 import {
     createUserDocumentFromAuth,
@@ -20,9 +21,11 @@ const defaultFormField = {
 }
 
 export default function SignUpForm() {
-
+    
     const [formFields, setFormFields] = useState(defaultFormField);
     const { displayName, email, password, confirmPassword } = formFields;
+
+    const { setCurrentUser } = useContext(UserContext);
 
     const clearFormFields =()=>{
         setFormFields(defaultFormField);
@@ -35,9 +38,8 @@ export default function SignUpForm() {
             return;
         }
         try {
-            console.log('just before first');
             const { user } = await createAuthUserWithEmailAndPassword(email, password);
-            console.log('passed first', user);
+            setCurrentUser(user);
             await createUserDocumentFromAuth(user, { displayName });
         }
         catch (error) {

@@ -6,6 +6,7 @@ import {
     signInWithEmailAndPassword,
     GoogleAuthProvider,
     createUserWithEmailAndPassword,
+    signOut,
     updatePassword
 } from 'firebase/auth';
 
@@ -35,7 +36,6 @@ const firebaseConfig = {
     prompt: "select_account"
   })
 
-  
   export const auth = getAuth();
   export const signInWithGooglePopup = () => signInWithPopup( auth, provider);
   
@@ -73,3 +73,5 @@ const firebaseConfig = {
     if (!email || !password) return;
     return await signInWithEmailAndPassword(auth, email,password);
   }
+  
+  export const signOutUser = async () => signOut(auth);
