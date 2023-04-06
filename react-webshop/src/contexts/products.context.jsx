@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-// import { createUserDocumentFromAuth, onAuthStateChangedListener } from "../utils/firebase/firebase.utils";
+
 import PRODUCTS from '../108 shop-data.json';
 
 export const ProductsContext = createContext({
