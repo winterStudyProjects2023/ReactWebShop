@@ -20,9 +20,10 @@ const defaultFormField = {
 }
 
 export default function SignUpForm() {
-
+    
     const [formFields, setFormFields] = useState(defaultFormField);
     const { displayName, email, password, confirmPassword } = formFields;
+
 
     const clearFormFields =()=>{
         setFormFields(defaultFormField);
@@ -35,9 +36,7 @@ export default function SignUpForm() {
             return;
         }
         try {
-            console.log('just before first');
             const { user } = await createAuthUserWithEmailAndPassword(email, password);
-            console.log('passed first', user);
             await createUserDocumentFromAuth(user, { displayName });
         }
         catch (error) {

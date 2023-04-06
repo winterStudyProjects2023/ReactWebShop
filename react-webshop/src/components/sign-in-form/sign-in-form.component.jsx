@@ -17,6 +17,8 @@ export default function SignInForm() {
         email: '',
         password: ''
     }
+
+    
     const [logInCredential, setLogInCredential] = useState(logInCredentials);
     const { email, password } = logInCredential;
 
@@ -36,12 +38,11 @@ export default function SignInForm() {
             return;
         }
         try {
-            const { response } = await signInAuthUserWithEmailAndPassword(email, password);
-            console.log(response);
+            const { user } = await signInAuthUserWithEmailAndPassword(email, password);
             clearFormFields();
         }
         catch (error) {
-            switch (error.code0) {
+            switch (error.code) {
                 case 'auth/wrong-password':
                     alert('Inccorect password');
                     break;
@@ -55,8 +56,7 @@ export default function SignInForm() {
     }
 
     const signInWithGoogle = async () => {
-        const { user } = await signInWithGooglePopup();
-        await createUserDocumentFromAuth(user);
+     await signInWithGooglePopup();
     };
 
     return (
