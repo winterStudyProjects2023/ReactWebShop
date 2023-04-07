@@ -6,19 +6,17 @@ import { CartProductsContext } from '../../contexts/cartProducts.context';
 
 
 export default function CartIcon() {
-    const cartProducts = useContext(CartProductsContext);
-    const {isCartOpen, setIsCartOpen} = useContext(CartProductsContext)
-
-    const items = cartProducts.length ? cartProducts.length : 0;
-
+    const {isCartOpen, setIsCartOpen, cartCount} = useContext(CartProductsContext)
+    
     const toggleCartOpen =()=> {
         setIsCartOpen(!isCartOpen);
     }
-
+    
+    
     return (
         <div className='cart-icon-container'>
             <ShoppingIcon className='shopping-icon' onClick={toggleCartOpen} />
-            <span className='item-counter'>{items}</span>
+            <span className='item-counter'>{cartCount}</span>
         </div>
     )
 }
