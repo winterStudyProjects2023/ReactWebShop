@@ -1,17 +1,20 @@
 import FormInput from "../form-input/form-input.component."
 import Button from "../button/button.component"
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
     signInAuthUserWithEmailAndPassword,
     signInWithGooglePopup,
     createUserDocumentFromAuth
 }
     from "../../utils/firebase/firebase.utils";
-
+ 
 import './sign-in-form.styles.scss'
 
 
 export default function SignInForm() {
+
+    const navigate = useNavigate();
 
     const logInCredentials = {
         email: '',
@@ -40,6 +43,7 @@ export default function SignInForm() {
         try {
             const { user } = await signInAuthUserWithEmailAndPassword(email, password);
             clearFormFields();
+            navigate('/');
         }
         catch (error) {
             switch (error.code) {
@@ -57,6 +61,7 @@ export default function SignInForm() {
 
     const signInWithGoogle = async () => {
      await signInWithGooglePopup();
+     navigate('/');
     };
 
     return (
