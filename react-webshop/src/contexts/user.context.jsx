@@ -4,7 +4,7 @@ import { createUserDocumentFromAuth, onAuthStateChangedListener } from "../utils
 
 export const UserContext = createContext({
     currentUser: null,
-    setCurrentUSer: () => null
+    setCurrentUser: () => null
 });
 
 export const UserProvider = ({ children }) => {

@@ -3,11 +3,15 @@ import { Link, Outlet } from 'react-router-dom';
 import { ReactComponent as BeRealLogo } from '../../assets/be-real-perfect-svg_757064-35.svg';
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/user.context';
+import { CartProductsContext } from '../../contexts/cartProducts.context';
 import './navigation.style.scss';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
+import CartIcon from '../../components/cart-icon/cart-icon.component';
+import CartDropdown from '../../components/cart-dropdown.component.jsx/cart-dropdown.component';
 
 export default function Navigation() {
   const { currentUser } = useContext(UserContext);
+  const { isCartOpen } = useContext(CartProductsContext);
 
   return (
     <>
@@ -19,12 +23,14 @@ export default function Navigation() {
           <Link className='nav-link' to='/shop'>
             SHOP
           </Link>
-          { currentUser ? <span className='nav-link' onClick={signOutUser}>SIGN OUT</span> :
+          {currentUser ? <span className='nav-link' onClick={signOutUser}>SIGN OUT</span> :
             <Link className='nav-link' to='/auth'>
               SIGN IN
             </Link>
           }
+          <CartIcon />
         </div>
+        {isCartOpen ? <CartDropdown /> : <></>}
       </div>
       <Outlet />
     </>
