@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import {useNavigate} from 'react-router-dom';
 
 import Button from '../button/button.component';
 
@@ -20,10 +21,11 @@ const defaultFormField = {
 }
 
 export default function SignUpForm() {
-    
+    const navigate = useNavigate();
+
     const [formFields, setFormFields] = useState(defaultFormField);
     const { displayName, email, password, confirmPassword } = formFields;
-
+  
 
     const clearFormFields =()=>{
         setFormFields(defaultFormField);
@@ -43,6 +45,7 @@ export default function SignUpForm() {
             console.log('Error while submiing', error.message);
         }
         clearFormFields();
+        navigate('/');
     }
 
 
