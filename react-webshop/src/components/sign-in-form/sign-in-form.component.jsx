@@ -60,7 +60,8 @@ export default function SignInForm() {
     }
 
     const signInWithGoogle = async () => {
-     await signInWithGooglePopup();
+    await signInWithGooglePopup();
+
      navigate('/');
     };
 

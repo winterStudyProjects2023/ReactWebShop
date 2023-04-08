@@ -25,3 +25,13 @@
     }
   }
   
+  @media only screen and (max-width: 480px){
+    .navigation {
+      .nav-links-container{
+        .nav-link {
+          padding: 20px 5px;
+          margin-top: 15px;
+        }
+      }
+    }
+  }
