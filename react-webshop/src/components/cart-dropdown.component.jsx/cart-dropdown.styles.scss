@@ -38,12 +38,17 @@
 
 .cart-dropdown-container-closed {
   z-index: 5;
-  // transform: scale(0);
   transform: translateX(101vw);
 }
 
-  @media screen and (max-width: 380px) {
+  @media only screen and (max-width: 380px) {
+
     .cart-dropdown-container {
-      transform: translateX ( 30px );
+      transform:translateX(5vw);
+    }
+    .cart-dropdown-container-closed {
+      z-index: 5;
+      transform: translateX(101vw);
     }
   }
+  
