@@ -1,5 +1,9 @@
 .navigation {
-    height: 70px;
+    background-color: white;
+    position: sticky;
+    top:0; 
+    z-index: 2;
+    height: 80px;
     width: 100%;
     display: flex;
     justify-content: space-between;
