@@ -14,8 +14,8 @@ export default function CartIcon() {
     
     
     return (
-        <div className='cart-icon-container'>
-            <ShoppingIcon className='shopping-icon' onClick={toggleCartOpen} />
+        <div className='cart-icon-container' onClick={toggleCartOpen} >
+            <ShoppingIcon className='shopping-icon' />
             <span className='item-counter'>{cartCount}</span>
         </div>
     )

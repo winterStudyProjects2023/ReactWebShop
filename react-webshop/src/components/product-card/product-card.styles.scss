@@ -50,4 +50,12 @@
       }
     }
   }
-  
+  @media (pointer: coarse) {
+    /* mobile device */
+    .card-container {
+      button {
+        opacity: 0.7;
+        display: block;
+      }
+    }
+  }
