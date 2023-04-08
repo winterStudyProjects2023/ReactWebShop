@@ -1,7 +1,8 @@
 .navigation {
-    background-color: white;
-    position: sticky;
+    position:fixed;
     top:0; 
+    left:0;
+    background-color: white;
     z-index: 2;
     height: 80px;
     width: 100%;
@@ -27,6 +28,14 @@
         cursor: pointer;
       }
     }
+    .overflow-container {
+      overflow:visible;
+    }
+  }
+
+  .heigth-balancer{
+    position: static;
+    height: 80px;
   }
   
   @media only screen and (max-width: 480px){

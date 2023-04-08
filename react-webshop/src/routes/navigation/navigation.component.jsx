@@ -31,8 +31,9 @@ export default function Navigation() {
           <CartIcon />
         </div>
         {<CartDropdown />}
-        {/* {isCartOpen ? <CartDropdown className= /> : <></>} */}
+        {/* {isCartOpen ? <CartDropdown className= /> : <></>} */}     
       </div>
+      <div className='heigth-balancer'>.</div>
       <Outlet />
     </>
   );
