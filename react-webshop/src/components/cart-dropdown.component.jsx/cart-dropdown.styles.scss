@@ -42,8 +42,8 @@
   transform: translateX(101vw);
 }
 
-  @media only screen and (max-width: 380px) {
+  @media screen and (max-width: 380px) {
     .cart-dropdown-container {
-      transform: translateX(calc(100vw - 310px));
+      transform: translateX ( 30px );
     }
   }
