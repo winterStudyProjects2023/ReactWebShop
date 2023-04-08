@@ -30,7 +30,8 @@ export default function Navigation() {
           }
           <CartIcon />
         </div>
-        {isCartOpen ? <CartDropdown /> : <></>}
+        {<CartDropdown />}
+        {/* {isCartOpen ? <CartDropdown className= /> : <></>} */}
       </div>
       <Outlet />
     </>

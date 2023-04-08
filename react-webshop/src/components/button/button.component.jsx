@@ -5,6 +5,7 @@ const BUTTON_TYPE = {
     inverted: 'inverted',
 }
 
+
 export default function Button ({ children, buttonType, ...otherProps }) {
     return (
         <button

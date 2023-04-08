@@ -21,17 +21,30 @@ $original-blue: #4285f4;
   cursor: pointer;
   display: flex;
   justify-content: center;
+  
+  &:active {
+    background-color: #626262;
+    color: white;
+  }
 
   &.google-sign-in {
     background-color: $color-coral;
     color: white;
+    &:active {
+      background-color: $color-coral;
+     }
   }
 
   &.inverted {
     background-color: white;
     color: black;
     border: 1px solid black;
+    &:active {
+      background-color: #272727;
+    }
   }
+
+ 
 }
 
 @media (pointer: coarse) {
@@ -41,17 +54,28 @@ $original-blue: #4285f4;
 @media (pointer: fine), (pointer: none) {
   /* desktop */
   .button-container {
+
     &:hover {
       background-color: white;
       color: black;
       border: 1px solid black;
     }
+    &:active {
+      background-color: #2f2f2f;
+      color: white;
+    }
+  
 
     &.google-sign-in {
       &:hover {
         background-color: $color-coral__hover;
+        color: white;
         border: none;
       }
+      &:active {
+       background-color: $color-coral;
+      }
+    
     }
     &.inverted {
       &:hover {
@@ -59,7 +83,12 @@ $original-blue: #4285f4;
         color: white;
         border: none;
       }
+      &:active {
+        background-color: #272727;
+      }
+    
     }
+
   }
 }
 

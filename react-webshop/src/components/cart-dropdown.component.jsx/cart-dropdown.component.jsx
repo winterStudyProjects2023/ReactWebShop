@@ -8,14 +8,19 @@ import { CartProductsContext } from '../../contexts/cartProducts.context';
 
 export default function CartDropdown() {
     const navigate = useNavigate();
-    const { cartItems, setIsCartOpen } = useContext(CartProductsContext);
+    const { cartItems, setIsCartOpen, isCartOpen } = useContext(CartProductsContext);
 
     const goToCheckout = () => {
         setIsCartOpen(false);
         navigate('/checkout');
     }
+
+    const closeCartDropdown =()=> {
+        setIsCartOpen(false);
+    }
     return (
-        <div className='cart-dropdown-container'>
+        <div className={isCartOpen ? 'cart-dropdown-container': 'cart-dropdown-container cart-dropdown-container-closed'} >
+             <div onClick={closeCartDropdown} className='close-cart-dropdown'>&#10005;</div>
             {cartItems.map((item) => {
                 return <CartItem key={item.id} cartItem={item} />
             })}

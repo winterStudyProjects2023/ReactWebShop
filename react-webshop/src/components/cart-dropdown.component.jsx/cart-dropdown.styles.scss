@@ -4,14 +4,21 @@
     height: 400px;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 10px 20px 20px 20px;
     border: 1px solid black;
     background-color: white;
     top: 90px;
-    right: 40px;
     z-index: 5;
     overflow-y: scroll;
+    cursor: pointer;
+    transform: translateX(calc(100vw - 360px));
+    transition: 0.2s ease-in;
   
+    .close-cart-dropdown{
+      padding: 0;
+      margin-bottom: 10px;
+    }
+
     .empty-message {
       font-size: 18px;
       margin: 50px auto;
@@ -28,6 +35,13 @@
       margin-top: auto;
     }
   }
+
+.cart-dropdown-container-closed {
+  z-index: 5;
+  // transform: scale(0);
+  transform: translateX(101vw);
+}
+
   @media only screen and (max-width: 380px) {
     .cart-dropdown-container {
       right: 2vw;

@@ -10,7 +10,6 @@ export default function CategoryPreview({ category , products }) {
                 <Link className='title' to={`/shop/${category.toLowerCase()}`}>
                 {category.toUpperCase()}
                </Link>
-
             </h2>
             <div className="preview">
                 {

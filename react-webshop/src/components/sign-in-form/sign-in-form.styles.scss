@@ -11,12 +11,21 @@
 
 .buttons-container {
   display:flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
+}
+
+@media only screen and (min-width: 480px) {
+
+  .buttons-container {
+    flex-direction: row;
+    justify-content: space-between;
+
+  }
 }
 
 @media only screen and (min-width: 781px) {
   .sign-in-container {
-    width: 40%;
+    width: 380px;
   }
 }
