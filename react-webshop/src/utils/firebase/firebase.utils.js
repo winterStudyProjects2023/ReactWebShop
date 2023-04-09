@@ -22,12 +22,12 @@ import {
 } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyDygdtFFxzlgqSY7pEta-f-smUrCyCQOvk',
-  authDomain: 'react-web-shop-db.firebaseapp.com',
-  projectId: 'react-web-shop-db',
-  storageBucket: 'react-web-shop-db.appspot.com',
-  messagingSenderId: '720214883839',
-  appId: '1:720214883839:web:d94199f295379bb9157bca',
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN, 
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
 // Initialize Firebase
