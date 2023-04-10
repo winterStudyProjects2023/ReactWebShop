@@ -1,8 +1,14 @@
 # ReactWebShop
 
+## Link to the deployed project
+https://spontaneous-paletas-779017.netlify.app/
+
+
 ## About 
 
 This is a demo React front-end web shop project, built using React functional components and React hooks.
+
+The perpose of this project is to apply best architecutre, coding, naming practices and integrating some external back-end services that helps modern web apps to run smothly, easily scalable, easy to handle in fast and secure way. 
 
 There are 5 different categories of products in the web shop- Hats, Jackets, Sneakers, Men's and Women's
 
@@ -29,7 +35,7 @@ STRIPE -  Development STRIPE API (upcoming) for handling mock payments
   - All the components are named depending of the function they are handling
   - All the react components have extensions - .component.jsx(tsx)
   - All the components' styles have extensions .styles.scss 
-  - The styling elements' classes naming is written by useing BEM convention, tring to describe explicitly the elements
+  - The styling elements' classes naming is written by using BEM convention, tring to describe explicitly the elements
   - For consistency all container elements has '-container' ending of the styling class name 
 
 
