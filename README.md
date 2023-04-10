@@ -37,13 +37,13 @@ STRIPE -  Development STRIPE API (upcoming) for handling mock payments
 
 ### Structure
 
-In the /src folder are presented following sub folders:
+The following sub folders are presented in the /src folder :
 
-  - components - for storing reusable components. For each component there is folder, containing the component itself and the style 
+  - components - for storing reusable components. For each component there is a folder, containing the component itself and the style 
 
   - assets - logos & icons 
 
-  - context - There are 3 components in the folder. UserContext for storing the current user data and status. CartProducts context that stores current added products and categories in the cart. Categories context that stores the fetched object from the Firebase DB - product's categories with product's data.
+  - context - There are 3 components in the folder. UserContext for storing the current user data and status. CartProducts context that stores current added products in the cart. Categories context that stores the fetched object from the Firebase DB - categories & product's data.
 
   - routes - Here are situated the components for the different routes/pages in the App 
       - home - initial state of the App consisting of Navigation + Home
@@ -53,7 +53,7 @@ In the /src folder are presented following sub folders:
       - category - route to a whole categoty preview
       - shop - a sub router in the app managing the sub-routes in '/shop' - default: categories-preview or sub-routes: /shop/category
 
-  - utils - a folder with a js file containing Firebase helper functions responsible for: initializing connections with Firebase authentication and Firebase Firestore, providing credentials, sign in users with e-mail or google profile, sign up users with email and password, creating or reading user records in Firebase, reading from or adding records in the DB, authentication state listener. As Google changes regularly the methods of Firebase communication, it's much easier to update the functions, used around the app from only one centralized place.
+  - utils - a folder with a js file containing Firebase helper functions responsible for: initializing connections with Firebase authentication and Firebase Firestore, providing credentials, sign in users with e-mail or google profile, sign up users with email and password, creating or reading user records in Firebase, reading from or adding records in the DB, authentication state listener. As Google updates regularly the methods of Firebase communication, it's much easier to update the functions, used around the app from only one centralized place.
 
 ### Technologies and methods use for building the project
 
@@ -65,13 +65,14 @@ In the /src folder are presented following sub folders:
 - React context API
 - Firebase Authentication
 - Firebase Firestore 
-- Netlify deployed with continuious integration (CI) from Github
+- Netlify deployed with continuious integration (CI/CD) from Github
  
 - Stripe mock API integration (in progress ... for v2.0)
 - Typescript strict types (in Progress ... for v2.0)
 - React refactoring with useReducer (in progress for v2.0) 
 - Redux refactoring (in progress ... for v2.0)
 - Jest and Cypress - tests implementation (in progress ... v2.0)
+- CI/CD - adding continiuous deployment with Github, Jest & Eslint ( in progress ... v2.0) to current CI/CD with Netlify   
 
 ### Sources with links that significantly helped for building this project
 ### Great thanks for providing such useful information
