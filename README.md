@@ -23,6 +23,15 @@ NETLIFY - Serverless app deployment
 STRIPE -  Development STRIPE API (upcoming) for handling mock payments 
 
 
+## Naming in the project
+
+  - All the components are separated in their own folder, consisting of component and the style for the component
+  - All the components are named depending of the function they are handling
+  - All the react components have extensions - .component.jsx(tsx)
+  - All the components' styles have extensions .styles.scss 
+  - The styling elements' classes naming is written by useing BEM convention, tring to describe explicitly the elements
+  - For consistency all container elements has '-container' ending of the styling class name 
+
 
 ## Structure and components
 
@@ -30,21 +39,21 @@ STRIPE -  Development STRIPE API (upcoming) for handling mock payments
 
 In the /src folder are presented following sub folders:
 
-  - components - for storing reusable components. In each component folder, the component itself is stored with extension .component.jsx. The style for the component is stored in a file with extension .styles.scss.
+  - components - for storing reusable components. For each component there is folder, containing the component itself and the style 
 
   - assets - logos & icons 
 
-  - context - There are 3 components in the folder. UserContext for storing the current user data and status, storing current added Cart Products and categories to store state of the fetched object from the Firebase DB - the categories with the products inside.
+  - context - There are 3 components in the folder. UserContext for storing the current user data and status. CartProducts context that stores current added products and categories in the cart. Categories context that stores the fetched object from the Firebase DB - product's categories with product's data.
 
   - routes - Here are situated the components for the different routes/pages in the App 
       - home - initial state of the App consisting of Navigation + Home
-      - navigation - bar that is always presented on the top containing links to other routes - shop, sign in/out, cart slider
+      - navigation - bar that is always presented on the top, containing links to other routes - shop, sign in/out, cart dropdown / slider
       - authentication - route that contains two - signIn and signUp component forms, responsible for authenticating users.
       - categories preview - preview page for all categories with presentation of only 4 products from a category
       - category - route to a whole categoty preview
       - shop - a sub router in the app managing the sub-routes in '/shop' - default: categories-preview or sub-routes: /shop/category
 
-  - utils - a folder with a js file containing Firebase helper functions responsible for: initializing connections with Firebase authentication and Firebase Firestore, providing credentials, SignIn users with e-mail or google profile, sign Up users with email and password, creating or reading user records in Firebase, reading from or adding records in the DB, authentication state listener. As Google changes regularly the methods of Firebase communication, it's much easier to update the functions, used around the app from only one centralized place.
+  - utils - a folder with a js file containing Firebase helper functions responsible for: initializing connections with Firebase authentication and Firebase Firestore, providing credentials, sign in users with e-mail or google profile, sign up users with email and password, creating or reading user records in Firebase, reading from or adding records in the DB, authentication state listener. As Google changes regularly the methods of Firebase communication, it's much easier to update the functions, used around the app from only one centralized place.
 
 ### Technologies and methods use for building the project
 
