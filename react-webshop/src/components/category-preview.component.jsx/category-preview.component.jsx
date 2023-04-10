@@ -12,7 +12,7 @@ export default function CategoryPreview({ category, products }) {
                 </Link>
             </h2>
             <div className='category-preview-subtitle'>
-                <Link className='category-preview-subtitle' to={`/shop/${category.toLowerCase()}`}>
+                <Link to={`/shop/${category.toLowerCase()}`}>
                     {`click to explore more ...`}
                 </Link>
             </div>
