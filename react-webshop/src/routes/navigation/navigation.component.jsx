@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import { ReactComponent as BeRealLogo } from '../../assets/be-real-perfect-svg_757064-35.svg';
+// import { ReactComponent as BeRealLogo } from '../../assets/be-real-perfect-svg_757064-35.svg';
+import { ReactComponent as BeRealLogo } from '../../assets/be-real-not-perfect.svg';
+
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/user.context';
 import { CartProductsContext } from '../../contexts/cartProducts.context';
