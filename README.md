@@ -8,7 +8,7 @@ https://spontaneous-paletas-779017.netlify.app/
 
 This is a demo React front-end web shop project, built using React functional components and React hooks.
 
-The perpose of this project is to apply good architecutre, coding and naming practices and integrating some external back-end services that helps modern web apps to run smothly, easily scalable, easy to handle in fast and secure way. 
+The purpose of this project is to apply good architecture, coding and naming practices and integrating some external back-end services that helps modern web apps to run smoothly, easily scalable, easy to handle in fast and secure way.
 
 There are 5 different categories of products in the web shop- Hats, Jackets, Sneakers, Men's and Women's
 
