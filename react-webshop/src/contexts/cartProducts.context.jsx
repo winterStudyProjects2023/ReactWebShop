@@ -45,16 +45,21 @@ const INITIAL_STATE = {
     cartTotal: 0
 }
 
+const CART_ACTION_TYPES ={
+    SET_CART_ITEMS: 'SET_CART_ITEMS',
+    SET_IS_CART_OPEN: 'SET_IS_CART_OPEN',
+}
+
 const cartReducer = (state, action) => {
     const { type, payload } = action;
 
     switch (type) {
-        case 'SET_CART_ITEMS':
+        case CART_ACTION_TYPES.SET_CART_ITEMS:
             return {
                 ...state,
                 ...payload
             }
-        case 'SET_IS_CART_OPEN':
+        case CART_ACTION_TYPES.SET_IS_CART_OPEN:
             return {
                 ...state,
                 isCartOpen: payload

@@ -19,7 +19,7 @@ export default function CheckoutItem({ cartItem }) {
     return (
         <div className='checkout-item-container'>
 
-            <div className="image-container">
+            <div className='image-container'>
                 <img src={imageUrl} alt={`${name}`} />
             </div>
 

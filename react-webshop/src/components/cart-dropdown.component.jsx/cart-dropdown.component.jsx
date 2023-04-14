@@ -18,6 +18,7 @@ export default function CartDropdown() {
     const closeCartDropdown =()=> {
         setIsCartOpen(false);
     }
+    
     return (
         <div className={isCartOpen ? 'cart-dropdown-container': 'cart-dropdown-container cart-dropdown-container-closed'} >
              <div onClick={closeCartDropdown} className='close-cart-dropdown'>&#10005;</div>
