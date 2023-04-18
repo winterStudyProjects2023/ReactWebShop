@@ -28,7 +28,10 @@ NETLIFY - Serverless app deployment
 
 STRIPE -  Development STRIPE API (upcoming) for handling mock payments 
 
-
+## Important branches and stages in the project, used for migrating through some alternative technologies inplementations     - webshop_version_1 - Firebase, arrays, callbacks & useState hook used to manage the state of the App
+  - v2_reducers - Conext api and useReduce hook instead of useState, used to manage the state of the App
+  - v3_redux - Project is refactored with Redux toolkit instead Context API. The root-reducer consists of 3 subreducers for managing the states of the app - user, cart, categories. 'Reselect' library is added to the project.  'Memozation' excersise implementation in the cart.selector.js. Cart.selector.js is created as a good coding practice of using 'selectors' in Redux. 
+  
 ## Naming in the project
 
   - All the components are separated in their own folder, consisting of component and the style for the component
