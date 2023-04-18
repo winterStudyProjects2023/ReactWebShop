@@ -6,7 +6,7 @@ import logger from 'redux-logger';
 const middlewares =[process.env.NODE_ENV==='development' && logger].filter(Boolean);
 
 export default configureStore({
-    reducer: rootReducer,
+    reducer: rootReducer, 
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
         // serializableCheck: false,
     }).concat(middlewares),

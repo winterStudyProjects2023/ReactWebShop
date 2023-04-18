@@ -11,15 +11,12 @@ import { createUserDocumentFromAuth, onAuthStateChangedListener } from "./utils/
 import { setCurrentUser } from './store/user/user.reducer';
 
 const App = () => {
-
-const dispatch = useDispatch();
-
+  const dispatch = useDispatch();
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener((user) => {
         if (user) {
              createUserDocumentFromAuth(user);
         }
-        console.log('user:',user)
         const pickedUser =  user && (({accessToken, email}) => ({ accessToken, email}))(user);
         // ---- code below, same result as the line above - function currying ----
         // let pickedUser = null;
@@ -28,14 +25,11 @@ const dispatch = useDispatch();
         //   pickedUser = { accessToken, email };
         // }
 
-
-        console.log('pickedUser:', pickedUser);
         dispatch(setCurrentUser(pickedUser));
     });
     
     return unsubscribe;
 }, [dispatch]);
-
 
   return (
     <Routes>

@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import { CategoriesProvider } from './contexts/categories.context';
-import { CartProductsProvider } from './contexts/cartProducts.context';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.scss';
@@ -15,11 +13,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
     <BrowserRouter>
-        <CategoriesProvider>
-          <CartProductsProvider>
             <App />
-          </CartProductsProvider>
-        </CategoriesProvider>
     </BrowserRouter>
     </Provider>
   </React.StrictMode>
