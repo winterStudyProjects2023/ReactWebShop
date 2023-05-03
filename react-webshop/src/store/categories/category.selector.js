@@ -1,1 +1,3 @@
-export default function selectCategoriesMap  (state) {return state.categories.categoriesMap}
+export default function selectCategoriesMap  (state) {
+    return state.categories.categoriesMap
+}
