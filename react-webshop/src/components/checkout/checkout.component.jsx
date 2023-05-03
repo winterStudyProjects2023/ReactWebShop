@@ -3,6 +3,7 @@ import './checkout.styles.scss';
 import CheckoutItem from '../checkout-item/checkout-item.component'
 import { useSelector } from 'react-redux';
 import { selectCartReducer, selectCartTotal } from '../../store/cart/cart.selector';
+import { PaymentForm } from '../pament-form/payment-form.component';
 
 export default function Checkout() {
     const { cartItems } = useSelector(selectCartReducer);
@@ -31,6 +32,8 @@ export default function Checkout() {
                 />
             )}
             <div className="total">Total: €{`${cartTotal}`}</div>
+       
+        <PaymentForm />
         </div>
     )
 }
