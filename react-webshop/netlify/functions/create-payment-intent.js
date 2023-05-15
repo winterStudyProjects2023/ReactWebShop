@@ -1,4 +1,4 @@
-require('dotenv').config();
+// require('dotenv').config();
 
 const stripe = require('stripe')(process.env.REACT_APP_STRIPE_SECRET_KEY);
 
