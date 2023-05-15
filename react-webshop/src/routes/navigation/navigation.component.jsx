@@ -35,7 +35,7 @@ export default function Navigation() {
         {<CartDropdown />}
       </div>
       <div className='heigth-balancer'>.</div>
-      <Outlet />
+        <Outlet />
     </>
   );
 }
