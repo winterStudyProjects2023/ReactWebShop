@@ -5,7 +5,7 @@ import storage from 'redux-persist/lib/storage';
 
 // import { compose, applyMiddleware } from "redux";
 import logger from 'redux-logger';
-const middlewares =[process.env.NODE_ENV==='development' && logger].filter(Boolean);
+const middlewares = [process.env.NODE_ENV==='development' && logger].filter(Boolean);
 
 const persistConfig = {
     key: 'root',
