@@ -35,9 +35,6 @@ export const PaymentForm = () => {
       body: JSON.stringify({ amount: amount * 100 })
     }).then(res => res.json());
 
-    //  const clientSecret = response.paymentIntent.client_secret;
-    // standart or destructuring from object below
-
     const { paymentIntent: { client_secret } } = response;
 
     const paymentResult = await stripe.confirmCardPayment(
