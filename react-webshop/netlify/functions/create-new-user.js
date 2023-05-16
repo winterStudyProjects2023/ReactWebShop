@@ -12,8 +12,8 @@ exports.handler =  async (event) => {
         statusCode: 200,
         body: JSON.stringify({}),
       };
-
     }
+    
     const currentUser = await stripe.customers.search({
       query: `email:'${userEmail}'`,
     });
