@@ -6,7 +6,6 @@ exports.handler =  async (event) => {
   try {
     const {user} = JSON.parse(event.body);
     const userEmail = user.currentUser.email
-    console.log('user:!!!', userEmail);
 
     if (!userEmail) {
       return {
