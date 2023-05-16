@@ -12,6 +12,7 @@ import { Elements } from '@stripe/react-stripe-js';
 
 export default function Checkout() {
   const [clientSecret, setClientSecret] = useState('');
+  const [userId, setUserId]=useState('')
   const { cartItems } = useSelector(selectCartReducer);
   const cartTotal = useSelector(selectCartTotal);
   const currentUser = useSelector(selectCurrentUser);
@@ -58,34 +59,43 @@ export default function Checkout() {
   };
 
   useEffect(() => {
-    fetch('/.netlify/functions/create-payment-intent', {
+    const fetchData = async () =>{
+      const data = await fetch('/.netlify/functions/create-new-user', {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        cartItems: cartItems,
-        amount: cartTotal,
-        user: currentUser,
-      }),
-    }).then(async (res) => {
-      const { paymentIntent: { client_secret } } = await res.json();
-      setClientSecret(client_secret);
-    }
-    );
-  }, [cartItems, currentUser, cartTotal]);
+      body: JSON.stringify({ user: currentUser})
+    })
+  
+      const {userData} = await data.json(); 
+      setUserId (userData[0].id);   
+  }
 
-  useEffect(() => {
-    fetch('/.netlify/functions/create-new-user', {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        user: currentUser,
-      }),
-    }).then(async (res) => {
-      const resp = await res.json();
-      console.log(resp);
-    });
-  }, [currentUser]);
+  fetchData().then
 
+(
+  fetch('/.netlify/functions/create-payment-intent', {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      cartItems: cartItems,
+      amount: cartTotal,
+      user: currentUser,
+      id: userId,
+    }),
+  }).then(async (res) => {
+    const { paymentIntent: { client_secret } } = await res.json();
+    setClientSecret(client_secret);
+  }
+  ));
+}, [userId, currentUser, cartItems, cartTotal]);
+
+
+
+  // useEffect(() => {
+   
+  // }, [cartItems, currentUser, cartTotal]);
+
+ 
   return (
     <div className='checkout-container'>
       <div className="checkout-header">

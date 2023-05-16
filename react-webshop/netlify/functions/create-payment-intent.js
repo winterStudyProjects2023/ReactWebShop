@@ -2,19 +2,24 @@ require('dotenv').config();
 
 const stripe = require('stripe')(process.env.REACT_APP_STRIPE_SECRET_KEY);
 
-
 exports.handler = async (event) => {
   try {
-    const { amount, user } = JSON.parse(event.body);
+    const { amount, user, id } = JSON.parse(event.body);
+
+    console.log('------end------:', id);
     const contactUser = user.currentUser ? user.currentUser.email : 'Guest';
-    const paymentIntent = await stripe.paymentIntents.create({
-      amount: amount * 100,
-      currency: 'eur',
-      description: `${contactUser}`,
-      automatic_payment_methods: {
-        enabled: true,
-      },
-    });
+    if (!id) {return}
+
+      const paymentIntent = await stripe.paymentIntents.create({
+        amount: amount * 100,
+        customer:id,
+        currency: 'eur',
+        description: `${contactUser}`,
+        automatic_payment_methods: {
+          enabled: true,
+        },
+      });
+    
 
     return {
       statusCode: 200,
