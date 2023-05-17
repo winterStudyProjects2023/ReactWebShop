@@ -3,13 +3,22 @@ require('dotenv').config();
 const stripe = require('stripe')(process.env.REACT_APP_STRIPE_SECRET_KEY);
 
 exports.handler =  async (event) => {
+
+  const CORS_HEADERS = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers':
+      'Origin, X-Requested-With, Content-Type, Accept',
+  }
+  
+
   try {
     const {user} = JSON.parse(event.body);
     const userEmail = user.currentUser.email
 
     if (!userEmail) {
       return {
-        statusCode: 200,
+        statusCode: 204,
+        headers: {...CORS_HEADERS},
         body: JSON.stringify({}),
       };
     }
@@ -29,11 +38,13 @@ exports.handler =  async (event) => {
   
     return {
       statusCode: 200,
+      headers: {...CORS_HEADERS},
       body: JSON.stringify({userData }),
     };
   } catch (error) {
     return {
       statusCode: 400,
+      headers: {...CORS_HEADERS},
       body: JSON.stringify({ error }),
     };
   }

@@ -11,12 +11,14 @@ import { stripePromise } from '../../utils/stripe/stripe.utils'
 import { Elements } from '@stripe/react-stripe-js';
 
 export default function Checkout() {
+
   const [clientSecret, setClientSecret] = useState('');
-  const [userId, setUserId]=useState('')
+  const [userId, setUserId] = useState('');
+
   const { cartItems } = useSelector(selectCartReducer);
   const cartTotal = useSelector(selectCartTotal);
   const currentUser = useSelector(selectCurrentUser);
-
+  
   const appearance = {
 
     theme: 'flat',
@@ -58,44 +60,49 @@ export default function Checkout() {
     }
   };
 
+
   useEffect(() => {
-    const fetchData = async () =>{
-      const data = await fetch('/.netlify/functions/create-new-user', {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ user: currentUser})
-    })
+    const fetchData = async () => {
+      try {
+        const userResponse = await fetch('/.netlify/functions/create-new-user', {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ user: currentUser })
+        });
+        const { userData } = await userResponse.json();
+        setUserId(userData[0].id);
+      } catch (error) {
+        console.error("Failed to fetch user data:", error);
+      }
+    };
   
-      const {userData} = await data.json(); 
-      setUserId (userData[0].id);   
-  }
+    const createPaymentIntent = async () => {
+      try {
+        const paymentResponse = await fetch('/.netlify/functions/create-payment-intent', {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            cartItems,
+            amount: cartTotal,
+            user: currentUser,
+            id: userId,
+          }),
+        });
+        const { paymentIntent: { client_secret } } = await paymentResponse.json();
+        setClientSecret(client_secret);
+      } catch (error) {
+        console.error("Failed to create payment intent:", error);
+      }
+    };
+  
+    fetchData()
+      .then(createPaymentIntent)
+      .catch((error) => {
+        console.error("Failed to fetch user data and create payment intent:", error);
+      });
+  }, [userId, currentUser, cartItems, cartTotal]);
+  
 
-  fetchData().then
-
-(
-  fetch('/.netlify/functions/create-payment-intent', {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      cartItems: cartItems,
-      amount: cartTotal,
-      user: currentUser,
-      id: userId,
-    }),
-  }).then(async (res) => {
-    const { paymentIntent: { client_secret } } = await res.json();
-    setClientSecret(client_secret);
-  }
-  ));
-}, [userId, currentUser, cartItems, cartTotal]);
-
-
-
-  // useEffect(() => {
-   
-  // }, [cartItems, currentUser, cartTotal]);
-
- 
   return (
     <div className='checkout-container'>
       <div className="checkout-header">
